@@ -1,0 +1,169 @@
+openapi: 3.1.0
+info:
+  version: '1.0'
+  title: AdminAPI
+paths:
+  /user:
+    put:
+      summary: ''
+      operationId: put-user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInfo'
+      responses:
+        '200':
+          description: OK
+        '409':
+          description: Conflict
+    get:
+      summary: ''
+      operationId: get-user
+      parameters:
+        - name: userId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: groupId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserInfo'
+        '204':
+          description: User does not exist
+        '400':
+          description: Missing Required parameters
+    delete:
+      summary: ''
+      operationId: delete-user
+      parameters:
+        - name: userId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: groupId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: User does not exist
+  /user/credentials:
+    put:
+      summary: ''
+      operationId: put-user-credentials
+      parameters:
+        - name: userId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: groupId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecurityInfo'
+        '400':
+          description: User does not exist
+        '403':
+          description: Reached maximum number of credentials allowed
+components:
+  schemas:
+    SecurityInfo:
+      type: object
+      title: SecurityInfo
+      properties:
+        accessKey:
+          type: string
+        secretKey:
+          type: string
+        createDate:
+          type: integer
+        expireDate:
+          type: integer
+        active:
+          type: boolean
+      required:
+        - accessKey
+        - secretKey
+        - createDate
+        - active
+    UserInfo:
+      type: object
+      title: UserInfo
+      properties:
+        userId:
+          type: string
+        userType:
+          type: string
+        fullName:
+          type: string
+        emailAddr:
+          type: string
+        active:
+          type: string
+        address1:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        country:
+          type: string
+        phone:
+          type: string
+        groupId:
+          type: string
+        website:
+          type: string
+        groupuser:
+          type: string
+        canonicalUserId:
+          type: string
+        ldapEnabled:
+          type: boolean
+        fileEndpoints:
+          type: string
+      required:
+        - active
+        - userId
+        - userType
+        - fullName
+        - emailAddr
+        - active
+        - address1
+        - address2
+        - city
+        - state
+        - zip
+        - country
+        - phone
+        - groupId
+        - website
+        - groupuser
+        - canonicalUserId
+        - ldapEnabled

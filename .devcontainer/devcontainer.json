@@ -1,0 +1,28 @@
+{
+	"name": "Cloudian COSI",
+	"image": "mcr.microsoft.com/devcontainers/go:1-1.23",
+
+	"customizations": {
+		"vscode": {
+			"settings": {
+                "go.useLanguageServer": true,
+				"go.lintTool": "golangci-lint",
+				"go.formatTool": "goimports",
+            },
+			"extensions": [
+				"streetsidesoftware.code-spell-checker"
+			]
+		}
+	},
+	"features": {
+		"ghcr.io/rio/features/k3d:1": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/rjfmachado/devcontainer-features/cloud-native:1": {
+			"kubelogin": "none",
+			"azwi": "none",
+			"flux": "none",
+			"cilium": "none"
+		},
+	},
+	"postCreateCommand": "${containerWorkspaceFolder}/.devcontainer/post-create-commands.sh",
+}

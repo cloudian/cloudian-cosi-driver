@@ -1,0 +1,133 @@
+linters:
+  enable:
+  # Default enabled
+  - errcheck
+  - gosimple
+  - govet
+  - ineffassign
+  - staticcheck
+  - typecheck
+  - unused
+  # Explicitly enabled
+  - asasalint
+  - asciicheck
+  - bidichk
+  - bodyclose
+  - canonicalheader
+  - containedctx
+  - copyloopvar
+  - cyclop
+  - decorder
+  - dogsled
+  - dupl
+  - durationcheck
+  - errchkjson
+  - errname
+  - errorlint
+  - exhaustive
+  - fatcontext
+  - forcetypeassert
+  - funlen
+  - gci
+  - ginkgolinter
+  - gocheckcompilerdirectives
+  - gochecknoglobals
+  - gochecknoinits
+  - gochecksumtype
+  - gocognit
+  - goconst
+  - gocritic
+  - gofmt
+  - gofumpt
+  - goheader
+  - goimports
+  - gomoddirectives
+  - gomodguard
+  - goprintffuncname
+  - gosec
+  - gosmopolitan
+  - grouper
+  - importas
+  - interfacebloat
+  - intrange
+  - lll
+  - loggercheck
+  - maintidx
+  - makezero
+  - mirror
+  - misspell
+  - mnd
+  - musttag
+  - nakedret
+  - nestif
+  - nilerr
+  - nilnil
+  - nlreturn
+  - noctx
+  - nosprintfhostport
+  - paralleltest
+  - perfsprint
+  - prealloc
+  - predeclared
+  - promlinter
+  - protogetter
+  - reassign
+  - revive
+  - rowserrcheck
+  - sloglint
+  - spancheck
+  - sqlclosecheck
+  - stylecheck
+  - tagliatelle
+  - tenv
+  - thelper
+  - tparallel
+  - unconvert
+  - unparam
+  - usestdlibvars
+  - wastedassign
+  - whitespace
+  - wrapcheck
+  - wsl
+  - zerologlint
+
+  disable:
+  # Explicitly disabled
+  - depguard # Not used (yet?)
+  - err113 # Excessive
+  - forbidigo # Excessive
+  - godot
+  - godox # I want to use TODO
+  - nolintlint # Formatter doesn't follow this.
+  # TODO:
+  - inamedparam
+  - ireturn
+  - tagalign
+  - testpackage
+  - varnamelen
+
+linters-settings:
+  mnd:
+    ignored-numbers:
+    # Common file/directory permissions
+    - '0644'
+    - '0666'
+    - '0755'
+    - '0o644'
+    - '0o666'
+    - '0o755'
+    - '0o0644'
+    - '0o0666'
+    - '0o0755'
+  lll:
+    line-length: 200 # Might be a tad excessive
+
+issues:
+  exclude-rules:
+  - linters:
+    - dupl
+    - funlen
+    - gochecknoglobals
+    - gosec
+    - revive
+    path: _test\.go$ # Test files are allowed to have long functions and duplicate code... and poor security

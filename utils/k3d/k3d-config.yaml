@@ -1,0 +1,19 @@
+agents: 0
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+kubeAPI:
+  hostIP: 172.30.0.1
+  hostPort: '24001'
+metadata:
+  name: cosi-driver
+options:
+  k3d:
+    timeout: 60s
+    wait: true
+  kubeconfig:
+    switchCurrentContext: true
+    updateDefaultKubeconfig: true
+ports:
+  - port: 24080:80
+servers: 1
+subnet: 172.30.0.0/16

@@ -1,0 +1,8 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: objectstorage-provisioner-sa
+  namespace: default
+  labels:
+    app.kubernetes.io/name: cloudian-cosi-driver
