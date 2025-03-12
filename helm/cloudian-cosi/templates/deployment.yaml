@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: cloudian-cosi-driver
-          image: cloudian-cosi-driver:v0.0.0
+          image: {{ .Values.image }}
           volumeMounts:
             - mountPath: /var/lib/cosi
               name: socket

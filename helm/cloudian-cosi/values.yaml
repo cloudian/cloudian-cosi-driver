@@ -10,3 +10,5 @@ admin:
   username: "sysadmin"
   password: "mypassword"
   group: "group1"
+disableTLSCertificateCheck: false
+image: "quay.io/cloudian/cosi-driver:v0.0.1"
