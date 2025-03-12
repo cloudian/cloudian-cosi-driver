@@ -38,3 +38,7 @@ jobs:
           assert-nothing-changed go mod tidy
 
           exit $STATUS
+      - name: Build
+        run: make build
+      - name: Test
+        run: make test
