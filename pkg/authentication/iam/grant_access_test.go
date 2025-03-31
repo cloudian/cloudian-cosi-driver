@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/cloudian/cosi-driver/pkg/clients/iam"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/clients/iam"
 	"github.com/stretchr/testify/require"
 )
 

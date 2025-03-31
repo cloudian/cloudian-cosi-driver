@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/cloudian/cosi-driver/pkg/authentication/iam"
-	"github.com/cloudian/cosi-driver/pkg/authentication/key"
-	"github.com/cloudian/cosi-driver/pkg/bucket"
-	"github.com/cloudian/cosi-driver/pkg/config"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/authentication/iam"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/authentication/key"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/bucket"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/config"
 	klog "k8s.io/klog/v2"
 	spec "sigs.k8s.io/container-object-storage-interface-spec"
 )

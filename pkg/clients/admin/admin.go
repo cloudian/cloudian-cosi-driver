@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/cloudian/cosi-driver/pkg/clients/admin/api"
-	"github.com/cloudian/cosi-driver/pkg/config"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/clients/admin/api"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/config"
 	klog "k8s.io/klog/v2"
 )
 

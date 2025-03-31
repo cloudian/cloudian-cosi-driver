@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/cloudian/cosi-driver/pkg/clients/admin/api"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/clients/admin/api"
 )
 
 // Mock client

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/cloudian/cosi-driver/pkg/config"
-	"github.com/cloudian/cosi-driver/pkg/server"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/config"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/server"
 	klog "k8s.io/klog/v2"
 )
 

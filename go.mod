@@ -1,4 +1,4 @@
-module github.com/cloudian/cosi-driver
+module github.com/cloudian/cloudian-cosi-driver
 
 go 1.23.1
 
