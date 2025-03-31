@@ -9,7 +9,7 @@ import (
 	aws "github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/credentials"
 	"github.com/aws/aws-sdk-go-v2/service/iam"
-	"github.com/cloudian/cosi-driver/pkg/config"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/config"
 	klog "k8s.io/klog/v2"
 )
 

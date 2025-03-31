@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/aws/aws-sdk-go-v2/service/s3"
-	"github.com/cloudian/cosi-driver/pkg/clients/admin/api"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/clients/admin/api"
 	klog "k8s.io/klog/v2"
 )
 

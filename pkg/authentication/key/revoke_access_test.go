@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/cloudian/cosi-driver/pkg/clients/admin"
-	"github.com/cloudian/cosi-driver/pkg/clients/s3"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/clients/admin"
+	"github.com/cloudian/cloudian-cosi-driver/pkg/clients/s3"
 	"github.com/stretchr/testify/require"
 )
 
