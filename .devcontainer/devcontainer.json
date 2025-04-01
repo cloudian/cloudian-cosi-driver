@@ -1,6 +1,6 @@
 {
 	"name": "Cloudian COSI",
-	"image": "mcr.microsoft.com/devcontainers/go:1-1.23",
+	"image": "mcr.microsoft.com/devcontainers/go:1-1.24",
 
 	"customizations": {
 		"vscode": {
