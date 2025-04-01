@@ -1,7 +1,6 @@
 module github.com/cloudian/cloudian-cosi-driver
 
-go 1.23.1
-toolchain go1.24.1
+go 1.24.1
 
 require (
 	github.com/aws/aws-sdk-go-v2/config v1.29.12
