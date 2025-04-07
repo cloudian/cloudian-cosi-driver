@@ -3,9 +3,9 @@
 
 ## Dependencies
 
-`kubectl` - v1.23+ recommended
+`kubectl` - v1.23+
 
-`helm` - v3.5+ recommended
+`helm` - v3.8+ due to support for OCI registries
 
 ## Install
 
@@ -15,13 +15,11 @@ kubectl apply -k github.com/kubernetes-sigs/container-object-storage-interface-a
 kubectl apply -k github.com/kubernetes-sigs/container-object-storage-interface-controller
 ```
 
-2. Clone this repository.
+2. Generate a [values.yaml](../helm/cosi-driver/values.yaml) to reflect your Hyperstore configuration.
 
-3. Edit [values.yaml](../helm/cloudian-cosi/values.yaml) to reflect your Hyperstore configuration.
-
-4. Run helm install, e.g. from the root of this repository:
+3. Install using the values.yaml you just created:
 ```
-helm install cloudian-cosi helm/cloudian-cosi -f helm/cloudian-cosi/values.yaml
+helm install cloudian-cosi-driver oci://quay.io/cloudian/cosi-driver --version 0.0.7 -f values.yaml
 ```
 
 ## Create a Bucket
