@@ -7,9 +7,9 @@ s3:
   secretAccessKey: "lkjhGFdsAPoiuYTreWQmnbVCxZlkjhGFdsAPoiuY+"
 admin:
   endpoint: "https://s3-admin.hyperstore.test:19443"
-  username: "sysadmin"
-  password: "mypassword"
-  group: "group1"
+  username: "sysadmin" # corresponds to hsctl admin.auth.username
+  password: "mypassword" # corresponds to hsctl admin.auth.password
+  group: "group1" # the name of the HyperStore group to create users and buckets in
 disableTLSCertificateCheck: false
 image:
   repository: quay.io/cloudian/cosi-driver
