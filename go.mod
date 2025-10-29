@@ -5,8 +5,8 @@ go 1.24.1
 require (
 	github.com/aws/aws-sdk-go-v2/config v1.31.15
 	github.com/aws/aws-sdk-go-v2/credentials v1.18.19
-	github.com/aws/aws-sdk-go-v2/service/iam v1.48.1
-	github.com/aws/aws-sdk-go-v2/service/s3 v1.88.7
+	github.com/aws/aws-sdk-go-v2/service/iam v1.49.0
+	github.com/aws/aws-sdk-go-v2/service/s3 v1.89.0
 	github.com/oapi-codegen/runtime v1.1.2
 	github.com/stretchr/testify v1.11.1
 	google.golang.org/grpc v1.76.0
