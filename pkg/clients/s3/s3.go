@@ -41,6 +41,7 @@ func NewClient(ctx context.Context, config config.Config) (*s3.Client, error) {
 	})
 
 	klog.Info("S3 Client created")
+	klog.Info("Using path style addressing for S3")
 
 	return s3Client, nil
 }
