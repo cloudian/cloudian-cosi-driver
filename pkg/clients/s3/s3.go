@@ -36,7 +36,9 @@ func NewClient(ctx context.Context, config config.Config) (*s3.Client, error) {
 		return nil, fmt.Errorf("failed to load S3 config: %w", err)
 	}
 
-	s3Client := s3.NewFromConfig(cfg)
+	s3Client := s3.NewFromConfig(cfg, func(o *s3.Options) {
+		o.UsePathStyle = true
+	})
 
 	klog.Info("S3 Client created")
 
