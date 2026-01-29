@@ -30,17 +30,20 @@ func Start(cosiConfig config.Config) error {
 		return fmt.Errorf("failed to create iam client: %w", err)
 	}
 
+	identity := identity.Server{}
+	provisioner := provisioner.Server{
+		S3Client:    s3Client,
+		IAMClient:   iamClient,
+		Config:      cosiConfig,
+	}
+
 	adminClient, err := admin.NewClient(cosiConfig)
 	if err != nil {
 		return fmt.Errorf("failed to create admin client: %w", err)
 	}
 
-	identity := identity.Server{}
-	provisioner := provisioner.Server{
-		S3Client:    s3Client,
-		IAMClient:   iamClient,
-		AdminClient: adminClient,
-		Config:      cosiConfig,
+	if adminClient != nil {
+		provisioner.AdminClient = adminClient
 	}
 
 	spec.RegisterIdentityServer(grpcServer, &identity)

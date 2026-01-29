@@ -80,6 +80,10 @@ func (s *Server) DriverGrantBucketAccess(ctx context.Context, request *spec.Driv
 		accountID = "iam_" + request.GetName()
 		accessKey, secretKey, err = iam.GrantBucketAccess(ctx, s.IAMClient, accountID, request.GetBucketId())
 	} else {
+		if s.AdminClient == nil {
+			return nil, fmt.Errorf("admin client is not configured, cannot grant key access")
+		}
+
 		klog.Infof("Granting Key access to bucket %s", request.GetBucketId())
 
 		accountID = "key_" + request.GetName()
@@ -118,6 +122,10 @@ func (s *Server) DriverRevokeBucketAccess(ctx context.Context, request *spec.Dri
 
 		klog.Infof("IAM access revoked for bucket %s", request.GetBucketId())
 	} else {
+		if s.AdminClient == nil {
+			return nil, fmt.Errorf("admin client is not configured, cannot revoke key access")
+		}
+
 		klog.Infof("Revoking Key access to bucket %s", request.GetBucketId())
 
 		err = key.RevokeBucketAccess(ctx, s.AdminClient, s.S3Client, request.GetAccountId(), s.Config.Credentials.Group, request.GetBucketId())
