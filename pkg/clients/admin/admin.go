@@ -13,11 +13,6 @@ import (
 
 // Initializes a client for use with HyperStore Admin API
 func NewClient(config config.Config) (*api.ClientWithResponses, error) {
-	if config.SystemAdmin.Username == "" && config.SystemAdmin.Password == "" {
-		// Maybe add log here
-		return nil, nil
-	}
-
 	tr := &http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: config.DisableTLSCertificateChecking}, //nolint:gosec
 	}

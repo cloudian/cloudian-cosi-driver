@@ -32,17 +32,19 @@ func Start(cosiConfig config.Config) error {
 
 	identity := identity.Server{}
 	provisioner := provisioner.Server{
-		S3Client:    s3Client,
-		IAMClient:   iamClient,
-		Config:      cosiConfig,
+		S3Client:  s3Client,
+		IAMClient: iamClient,
+		Config:    cosiConfig,
 	}
 
-	adminClient, err := admin.NewClient(cosiConfig)
-	if err != nil {
-		return fmt.Errorf("failed to create admin client: %w", err)
-	}
+	if cosiConfig.SystemAdmin.Username == "" && cosiConfig.SystemAdmin.Password == "" {
+		klog.Info("Admin credentials not provided, admin client will not be created")
+	} else {
+		adminClient, err := admin.NewClient(cosiConfig)
+		if err != nil {
+			return fmt.Errorf("failed to create admin client: %w", err)
+		}
 
-	if adminClient != nil {
 		provisioner.AdminClient = adminClient
 	}
 

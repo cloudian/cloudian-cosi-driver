@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"strings"
+	"errors"
 
 	"github.com/cloudian/cloudian-cosi-driver/pkg/authentication/iam"
 	"github.com/cloudian/cloudian-cosi-driver/pkg/authentication/key"
@@ -81,7 +82,7 @@ func (s *Server) DriverGrantBucketAccess(ctx context.Context, request *spec.Driv
 		accessKey, secretKey, err = iam.GrantBucketAccess(ctx, s.IAMClient, accountID, request.GetBucketId())
 	} else {
 		if s.AdminClient == nil {
-			return nil, fmt.Errorf("admin client is not configured, cannot grant key access")
+			return nil, errors.New("admin client is not configured, cannot grant key access")
 		}
 
 		klog.Infof("Granting Key access to bucket %s", request.GetBucketId())
@@ -123,7 +124,7 @@ func (s *Server) DriverRevokeBucketAccess(ctx context.Context, request *spec.Dri
 		klog.Infof("IAM access revoked for bucket %s", request.GetBucketId())
 	} else {
 		if s.AdminClient == nil {
-			return nil, fmt.Errorf("admin client is not configured, cannot revoke key access")
+			return nil, errors.New("admin client is not configured, cannot revoke key access")
 		}
 
 		klog.Infof("Revoking Key access to bucket %s", request.GetBucketId())
