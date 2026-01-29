@@ -92,7 +92,7 @@ kubectl apply -f bucketaccessclass.yaml
 
 Create a yaml file with your preferred bucket access configuration, e.g. `bucketaccess.yaml`:
 ```
-apiVersion: cosi.storage.k8s.io/v1alpha1
+apiVersion: objectstorage.k8s.io/v1alpha1
 kind: BucketAccess
 metadata:
   name: cloudian-bucketaccess
