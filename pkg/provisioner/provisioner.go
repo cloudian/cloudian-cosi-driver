@@ -2,9 +2,9 @@ package provisioner
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
-	"errors"
 
 	"github.com/cloudian/cloudian-cosi-driver/pkg/authentication/iam"
 	"github.com/cloudian/cloudian-cosi-driver/pkg/authentication/key"
