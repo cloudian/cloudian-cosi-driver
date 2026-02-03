@@ -35,7 +35,7 @@ spec:
               value: {{ $admin.endpoint }}
             {{- end }}
           - name: DISABLE_TLS_CERTIFICATE_CHECK
-            value: "{{ .Values.disableTLSCertificateCheck }}"
+            value: "{{ default false .Values.disableTLSCertificateCheck }}"
           envFrom:
           - secretRef:
               name: cloudian-cosi-secret
