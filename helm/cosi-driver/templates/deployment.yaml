@@ -30,9 +30,12 @@ spec:
           - name: IAM_ENDPOINT
             value: {{ .Values.s3.iamEndpoint }}
           - name: ADMIN_ENDPOINT
-            value: {{ .Values.admin.endpoint }}
+            {{- $admin := .Values.admin | default dict }}
+            {{- if $admin.endpoint }}
+              value: {{ $admin.endpoint }}
+            {{- end }}
           - name: DISABLE_TLS_CERTIFICATE_CHECK
-            value: "{{ .Values.disableTLSCertificateCheck }}"
+            value: "{{ default false .Values.disableTLSCertificateCheck }}"
           envFrom:
           - secretRef:
               name: cloudian-cosi-secret

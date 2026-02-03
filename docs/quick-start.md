@@ -15,7 +15,7 @@ kubectl apply -k github.com/kubernetes-sigs/container-object-storage-interface-a
 kubectl apply -k github.com/kubernetes-sigs/container-object-storage-interface-controller
 ```
 
-2. Generate a [values.yaml](../helm/cosi-driver/values.yaml) to reflect your Hyperstore configuration.
+2. Generate a [values.yaml](../helm/cosi-driver/values.yaml) to reflect your Hyperstore configuration. NOTE: Only provide the admin credentials if you require the KEY authentication type (not recommended) - see [Grant Bucket Access](#grant-bucket-access)
 
 3. Install using the values.yaml you just created:
 ```
@@ -83,6 +83,8 @@ metadata:
 driverName: cloudian-cosi-driver           
 authenticationType: IAM
 ```
+The `authenticationType` can be set to either IAM (recommended) or KEY. IAM will grant access to buckets via IAM users. KEY will grant access via Cloudian users and requires the admin credentials to be provided to do so.
+
 Apply the BucketAccessClass Resource:
 ```
 kubectl apply -f bucketaccessclass.yaml
@@ -92,7 +94,7 @@ kubectl apply -f bucketaccessclass.yaml
 
 Create a yaml file with your preferred bucket access configuration, e.g. `bucketaccess.yaml`:
 ```
-apiVersion: cosi.storage.k8s.io/v1alpha1
+apiVersion: objectstorage.k8s.io/v1alpha1
 kind: BucketAccess
 metadata:
   name: cloudian-bucketaccess
