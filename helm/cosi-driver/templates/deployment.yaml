@@ -22,6 +22,11 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/cosi
               name: socket
+{{ if .Values.existingS3CertificateSecret }}
+            - mountPath: /usr/local/share/ca-certificates
+              name: s3-certs
+              readOnly: true
+{{ end }}
           env:
           - name: S3_REGION
             value: {{ .Values.s3.region }}
@@ -38,10 +43,9 @@ spec:
             value: "{{ default false .Values.disableTLSCertificateCheck }}"
           envFrom:
           - secretRef:
-              name: cloudian-cosi-secret
+              name: {{ .Values.existingCredentialsSecret | default "cloudian-cosi-secret" }}
         - name: objectstorage-driver-sidecar
-          # Image tag v20241003-v0.1.0-58-g80979e8
-          image: gcr.io/k8s-staging-sig-storage/objectstorage-sidecar@sha256:42d190db77631505e2b0fd6dc7a3186e316a57da4e449566623d259f8f9b4ff8
+          image: "{{ .Values.sidecar.image.repository }}:{{ .Values.sidecar.image.tag }}"
           args: ["--debug", "-v", "100"]
           env:
             - name: POD_NAMESPACE
@@ -54,3 +58,8 @@ spec:
       volumes:
         - name: socket
           emptyDir: {}
+{{ if .Values.existingS3CertificateSecret }}
+        - name: s3-certs
+          secret:
+            secretName: {{ .Values.existingS3CertificateSecret }}
+{{ end }}

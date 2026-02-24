@@ -10,7 +10,14 @@ admin: # Optional: required only if using BucketClass.authenticationType "Key" (
   username: "sysadmin" # corresponds to hsctl admin.auth.username
   password: "password" # corresponds to hsctl admin.auth.password
   group: "group1" # the name of the HyperStore group to create users and buckets in
+disableTLSCertificateCheck: false
+existingS3CertificateSecret: ""
+existingCredentialsSecret: ""
 image:
   repository: quay.io/cloudian/cosi-driver
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
+sidecar:
+  image:
+    repository: gcr.io/k8s-staging-sig-storage/objectstorage-sidecar
+    tag: v20241003-v0.1.0-58-g80979e8

@@ -11,7 +11,8 @@ k3d cluster create --config ../utils/k3d/k3d-config.yaml
 # Copy an up-to-date image to the cluster
 pushd ..
     make image
-    k3d image import -c cosi-driver cloudian-cosi-driver:v0.0.0
+    docker tag cloudian-cosi-driver:v0.0.0 quay.io/cloudian/cosi-driver:v0.0.0
+    k3d image import -c cosi-driver quay.io/cloudian/cosi-driver:v0.0.0
 popd
 
 # 3rd Party Resources - Lock to a SHA? Given releases are thin on the ground
