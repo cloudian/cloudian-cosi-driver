@@ -34,11 +34,11 @@ spec:
             value: {{ .Values.s3.s3Endpoint }}
           - name: IAM_ENDPOINT
             value: {{ .Values.s3.iamEndpoint }}
+{{- $admin := .Values.admin | default dict }}
+{{- if $admin.endpoint }}
           - name: ADMIN_ENDPOINT
-            {{- $admin := .Values.admin | default dict }}
-            {{- if $admin.endpoint }}
-              value: {{ $admin.endpoint }}
-            {{- end }}
+            value: {{ $admin.endpoint }}
+{{- end }}
           - name: DISABLE_TLS_CERTIFICATE_CHECK
             value: "{{ default false .Values.disableTLSCertificateCheck }}"
           envFrom:
