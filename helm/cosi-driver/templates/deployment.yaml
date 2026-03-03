@@ -19,6 +19,7 @@ spec:
       containers:
         - name: cloudian-cosi-driver
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: "{{ .Values.image.imagePullPolicy }}"
           volumeMounts:
             - mountPath: /var/lib/cosi
               name: socket
@@ -46,6 +47,7 @@ spec:
               name: {{ .Values.existingCredentialsSecret | default "cloudian-cosi-secret" }}
         - name: objectstorage-driver-sidecar
           image: "{{ .Values.sidecar.image.repository }}:{{ .Values.sidecar.image.tag }}"
+          imagePullPolicy: "{{ .Values.sidecar.image.imagePullPolicy }}"
           args: ["--debug", "-v", "100"]
           env:
             - name: POD_NAMESPACE

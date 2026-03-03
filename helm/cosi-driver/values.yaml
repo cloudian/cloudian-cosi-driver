@@ -17,7 +17,9 @@ image:
   repository: quay.io/cloudian/cosi-driver
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
+  imagePullPolicy: IfNotPresent
 sidecar:
   image:
     repository: gcr.io/k8s-staging-sig-storage/objectstorage-sidecar
     tag: v20241003-v0.1.0-58-g80979e8
+    imagePullPolicy: IfNotPresent
