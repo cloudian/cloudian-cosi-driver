@@ -4,4 +4,4 @@ set -euxo pipefail
 
 update-ca-certificates
 
-/cosi-driver
+exec /cosi-driver
