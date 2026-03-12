@@ -10,7 +10,7 @@ require (
 	github.com/oapi-codegen/runtime v1.2.0
 	github.com/stretchr/testify v1.11.1
 	google.golang.org/grpc v1.79.2
-	k8s.io/klog/v2 v2.130.1
+	k8s.io/klog/v2 v2.140.0
 )
 
 require (
