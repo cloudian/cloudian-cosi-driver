@@ -7,7 +7,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/credentials v1.19.13
 	github.com/aws/aws-sdk-go-v2/service/iam v1.53.7
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.97.3
-	github.com/oapi-codegen/runtime v1.2.0
+	github.com/oapi-codegen/runtime v1.4.1
 	github.com/stretchr/testify v1.11.1
 	google.golang.org/grpc v1.79.3
 	k8s.io/klog/v2 v2.140.0
