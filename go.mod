@@ -1,6 +1,6 @@
 module github.com/cloudian/cloudian-cosi-driver
 
-go 1.24.1
+go 1.25.0
 
 require (
 	github.com/aws/aws-sdk-go-v2/config v1.32.18
@@ -9,7 +9,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.101.0
 	github.com/oapi-codegen/runtime v1.4.1
 	github.com/stretchr/testify v1.11.1
-	google.golang.org/grpc v1.79.3
+	google.golang.org/grpc v1.82.0
 	k8s.io/klog/v2 v2.140.0
 )
 
@@ -42,10 +42,10 @@ require (
 )
 
 require (
-	golang.org/x/net v0.48.0 // indirect
-	golang.org/x/sys v0.39.0 // indirect
-	golang.org/x/text v0.32.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20251202230838-ff82c1b0f217 // indirect
-	google.golang.org/protobuf v1.36.10 // indirect
+	golang.org/x/net v0.53.0 // indirect
+	golang.org/x/sys v0.43.0 // indirect
+	golang.org/x/text v0.36.0 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260414002931-afd174a4e478 // indirect
+	google.golang.org/protobuf v1.36.11 // indirect
 	sigs.k8s.io/container-object-storage-interface-spec v0.1.0
 )
