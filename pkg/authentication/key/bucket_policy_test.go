@@ -7,6 +7,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// nolint:goconst
 func TestRemovePolicyStatementsForUser(t *testing.T) {
 	t.Parallel()
 
