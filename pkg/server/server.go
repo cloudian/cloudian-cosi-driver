@@ -51,7 +51,9 @@ func Start(cosiConfig config.Config) error {
 	spec.RegisterIdentityServer(grpcServer, &identity)
 	spec.RegisterProvisionerServer(grpcServer, &provisioner)
 
-	listener, err := net.Listen("unix", "/var/lib/cosi/cosi.sock")
+	lc := net.ListenConfig{}
+
+	listener, err := lc.Listen(ctx, "unix", "/var/lib/cosi/cosi.sock")
 	if err != nil {
 		err := fmt.Errorf("listener error %w", err)
 		klog.Error(err)
